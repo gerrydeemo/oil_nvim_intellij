@@ -1,0 +1,16 @@
+# Gradle temporary files and build artifacts
+.gradle/
+build/
+
+# IntelliJ IDEA settings (local to your machine)
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# macOS system files
+.DS_Store
+
+# Miscellaneous junk
+.Rhistory

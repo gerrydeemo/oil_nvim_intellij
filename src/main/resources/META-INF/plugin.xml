@@ -1,0 +1,53 @@
+<idea-plugin>
+    <id>com.github.gerrydempsey.oil-intellij</id>
+    <name>Oil for IntelliJ</name>
+    <vendor>Gerry Dempsey</vendor>
+
+    <description><![CDATA[
+    A plugin that brings the oil.nvim workflow to IntelliJ.
+    Edit your directory as a text buffer.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Oil Notifications" displayType="BALLOON"/>
+
+        <fileType name="Oil" 
+                  implementationClass="com.github.gerrydempsey.oil.OilFileType" 
+                  extensions="oil" 
+                  fieldName="INSTANCE"
+                  language="Oil"/>
+        
+        <lang.parserDefinition language="Oil" implementationClass="com.github.gerrydempsey.oil.OilParserDefinition"/>
+        
+        <annotator language="Oil" implementationClass="com.github.gerrydempsey.oil.OilAnnotator"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.gerrydempsey.oil.OilSaveListener"
+                  topic="com.intellij.openapi.fileEditor.FileDocumentManagerListener"/>
+    </applicationListeners>
+
+    <actions>
+        <action id="com.github.gerrydempsey.oil.OpenOilAction"
+                class="com.github.gerrydempsey.oil.OpenOilAction"
+                text="Open Oil"
+                description="Open current directory as a text buffer">
+            <add-to-group group-id="FileMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt O"/>
+        </action>
+
+        <action id="com.github.gerrydempsey.oil.OpenSelectedAction"
+                class="com.github.gerrydempsey.oil.OpenSelectedAction"
+                text="Open Selected"
+                description="Open selected file or directory">
+        </action>
+
+        <action id="com.github.gerrydempsey.oil.OpenParentAction"
+                class="com.github.gerrydempsey.oil.OpenParentAction"
+                text="Open Parent"
+                description="Open parent directory">
+        </action>
+    </actions>
+</idea-plugin>
