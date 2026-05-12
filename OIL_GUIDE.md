@@ -47,6 +47,24 @@ IntelliJ's current Metal rendering engine can crash (SIGSEGV) when UI components
     - **Delete:** Delete a line to delete the corresponding file on disk.
 - **Save:** Press `Cmd + S` (Save All). The plugin will detect changes in the `.oil` buffer and synchronize them to your filesystem.
 
+### 3. Keybindings (IdeaVim)
+If you use the **IdeaVim** plugin, you can add the following mappings to your `.ideavimrc` (or refer to the `config.txt` file in this repo) to match the `oil.nvim` workflow:
+
+```vim
+" Open Oil (current directory)
+nmap - <Action>(com.github.gerrydempsey.oil.OpenOilAction)
+
+" Open selected file/folder
+nmap <Enter> <Action>(com.github.gerrydempsey.oil.OpenSelectedAction)
+
+" Open parent directory
+nmap _ <Action>(com.github.gerrydempsey.oil.OpenParentAction)
+
+" Flash/Search integration (requires Flash plugin)
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+```
+
 ---
 
 ## 🛡 Advanced Operations & Safety

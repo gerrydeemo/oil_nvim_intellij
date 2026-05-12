@@ -1,0 +1,6 @@
+nmap - <Action>(com.github.gerrydempsey.oil.OpenOilAction)
+nmap <Enter> <Action>(com.github.gerrydempsey.oil.OpenSelectedAction)
+nmap _ <Action>(com.github.gerrydempsey.oil.OpenParentAction)
+
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
